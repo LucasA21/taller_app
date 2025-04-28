@@ -1,7 +1,7 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import { colors } from "@/src/theme/colors";
 import { MovieInfo } from "./Components/MovieInfo";
-import { BackButton } from "./Components/BackButton";
+import { BackButton } from "../../components/BackButton";
 
 type DetailScreenProps = {
   item: {

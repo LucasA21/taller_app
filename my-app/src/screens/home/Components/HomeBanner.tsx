@@ -1,23 +1,28 @@
-import { Pressable,Text,StyleSheet } from "react-native";
+import { Pressable,Text,StyleSheet,ViewStyle } from "react-native";
 import { PressStartFont } from "@/src/components/PressStartFont";
 import { colors } from "@/src/theme/colors";
+import { Href , useRouter} from "expo-router";
 
 
 type BannerProps = {
     title: string;
     description: string;
     bcolor: string;
+    route: Href;
+    sty?: ViewStyle;
 }
 
-function handleBanner() {
-    console.log("Aca va logica del banner");
-}
+export function HomeBanner({title,description,bcolor,route,sty}: BannerProps) {
+    
+    const router = useRouter();
 
-export function HomeBanner({title,description,bcolor}: BannerProps) {
+    function handleBanner() {
+        router.push(route);
+    }
    return (
     <Pressable
         onPress={handleBanner}
-        style={({ pressed }) => [style.container,{backgroundColor: bcolor}, { opacity: pressed ? 0.5 : 1 }]}
+        style={({ pressed }) => [style.container,sty,{backgroundColor: bcolor}, { opacity: pressed ? 0.5 : 1 }]}
     >
         <PressStartFont style = {style.title}>
             {title}
@@ -38,22 +43,21 @@ const style = StyleSheet.create({
         gap: 12,
     },
     title: {
-        color: "#fff",
-        fontSize: 36,
         fontWeight: "bold",
+        color: "#fff",
+        fontSize: 26,
         textAlign: "left",
-
     },
     description: {
         color: "#fff",
-        fontSize: 20,
+        fontSize: 18,
         textAlign: "left",
         marginTop: 8,
     },
     jugar: {
+        fontWeight: "bold",
         color: "#fff",
         fontSize: 12,
-        fontWeight: "bold",
         textAlign: "right",
         marginTop: "auto",
     },

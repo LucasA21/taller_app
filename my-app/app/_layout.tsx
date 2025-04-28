@@ -9,6 +9,7 @@ export default function RootLayout() {
 
   const [loaded, error] = useFonts({
     PressStart2P_400Regular: require("../assets/fonts/PressStart2P-Regular.ttf"),
+    PressStart2P_700Bold:    require("../assets/fonts/PressStart2P-Bold.ttf"),
   });
 
   useEffect(() => {
@@ -23,3 +24,4 @@ export default function RootLayout() {
 
   return <Stack screenOptions={{ headerShown: false }}/>;
 }
+  

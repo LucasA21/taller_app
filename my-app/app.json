@@ -27,7 +27,10 @@
         [
           "expo-font",
           {
-            "fonts": ["./assets/fonts/PressStart2P-Regular.ttf"]
+            "fonts": [
+                ["PressStart2P_400Regular", "./assets/fonts/PressStart2P-Regular.ttf"],
+                ["PressStart2P_700Bold", "./assets/fonts/PressStart2P-Bold.ttf"]
+            ]
           }
         ],
         [
