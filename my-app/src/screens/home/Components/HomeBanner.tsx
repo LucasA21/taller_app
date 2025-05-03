@@ -3,7 +3,6 @@ import { PressStartFont } from "@/src/components/PressStartFont";
 import { colors } from "@/src/theme/colors";
 import { Href , useRouter} from "expo-router";
 
-
 type BannerProps = {
     title: string;
     description: string;

@@ -4,6 +4,7 @@ import { BannerList } from "./Components/BannerList";
 import { colors } from "@/src/theme/colors";
 import { SectionList } from "./Components/SectionList";
 
+
 export function HomeScreen() {
     return (
         <View style={styles.container}>

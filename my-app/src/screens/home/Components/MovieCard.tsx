@@ -1,7 +1,8 @@
-import { View, StyleSheet, Text, ScrollView } from "react-native";
-import { ImageBackground } from "expo-image";
+import { View, StyleSheet, Text, ScrollView} from "react-native";
+import { Image } from "expo-image";
 import { PressStartFont } from "@/src/components/PressStartFont";
 import { colors } from "@/src/theme/colors";
+
 
 type MovieCardProps = {
     title: string;
@@ -12,25 +13,26 @@ type MovieCardProps = {
 export function MovieCard({ title, image, categorys }: MovieCardProps) {
     return (
         <View style={styles.container}>
-            <ImageBackground style={styles.image} source={image}>
-            </ImageBackground>
+            <Image 
+                source={{uri: image}} 
+                style={styles.image}
+                contentFit="contain"
+            />
+            <View style={styles.info}>
             <PressStartFont 
-            numberOfLines={1}
-            ellipsizeMode="tail"
-            style={styles.title}>
-                {title}
+                numberOfLines={1}
+                ellipsizeMode="tail"
+                style={styles.title}>
+                    {title}
             </PressStartFont>
-            <ScrollView 
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.categoriesContainer}
-            >
+            <View style={styles.categoriesContainer}>
                 {categorys.map((category, index) => (
                     <Text key={index} style={styles.category}>
                         {category}
                     </Text>
                 ))}
-            </ScrollView>
+                </View>
+            </View>
         </View>
     );
 }
@@ -38,8 +40,10 @@ export function MovieCard({ title, image, categorys }: MovieCardProps) {
 const styles = StyleSheet.create({
     container: {
         width: 180,
-        gap: 4,
+        height: 290,
+        marginRight: 10,
         borderWidth: 2,
+        overflow: "hidden",
         borderTopColor: colors.lightPurple,
         borderLeftColor: colors.lightPurple,
         borderBottomColor: colors.darkPurple,
@@ -48,7 +52,6 @@ const styles = StyleSheet.create({
     image: {
         width: "100%",
         height: 220,
-        overflow: "hidden",
         backgroundColor: colors.lightGray,
     },
     title: {
@@ -56,12 +59,11 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: "bold",
         alignSelf: "flex-start",
-        paddingLeft: 10,
+        paddingLeft: 7,
         paddingTop: 10,
     },
     categoriesContainer: {
         flexDirection: "row",
-        margin: 7,
         alignSelf: "flex-start",
     },
     category: {
@@ -71,4 +73,10 @@ const styles = StyleSheet.create({
         padding: 5,
         margin: 2,
     },
+    info: {
+        flex: 1,
+        paddingHorizontal: 8,
+        paddingVertical: 6,
+        justifyContent: "space-between",
+        }
 });

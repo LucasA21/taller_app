@@ -19,6 +19,9 @@ export function SectionContainer({ sectionTitle, item }: sectionProps) {
             </PressStartFont>
             <FlatList
             data={item}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
             renderItem={({ item }) => (
                 <Link
                 href={{
@@ -27,15 +30,13 @@ export function SectionContainer({ sectionTitle, item }: sectionProps) {
                 }}
                 asChild
                 >
-                   <Pressable>
+                   <Pressable style={styles.pressable}>
                         <MovieCard {...item}/>
                     </Pressable>
                 </Link>
             )}
             keyExtractor={(item) => item.title}
             contentContainerStyle={styles.sectionContainer}
-            horizontal
-            showsHorizontalScrollIndicator={false}
             >
             </FlatList>
         </View>    
@@ -66,8 +67,10 @@ const styles = StyleSheet.create({
         color: "#fff",
     },
     sectionContainer: {
-        flexDirection: "row",
-        padding: 10,
-        gap: 12,
+        paddingVertical: 10,
+        paddingHorizontal: 10,
     },
+    pressable: {
+        flexShrink: 0,
+      },
 });

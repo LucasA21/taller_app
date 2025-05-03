@@ -24,16 +24,7 @@
     },
     "plugins": [
       "expo-router",
-        [
-          "expo-font",
-          {
-            "fonts": [
-                ["PressStart2P_400Regular", "./assets/fonts/PressStart2P-Regular.ttf"],
-                ["PressStart2P_700Bold", "./assets/fonts/PressStart2P-Bold.ttf"]
-            ]
-          }
-        ],
-        [
+      [
         "expo-splash-screen",
         {
           "image": "./assets/images/splash-icon.png",
@@ -41,7 +32,7 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-       ]
+      ]
     ],
     "experiments": {
       "typedRoutes": true
