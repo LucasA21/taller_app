@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from "expo-router";
 import DetailScreen from "@/src/screens/detail/DetailScreen";
-import { View, Text } from "react-native";
+import { View} from "react-native";
 import { allItems } from "@/src/data/allData";
 import { PressStartFont } from "@/src/components/PressStartFont";
 

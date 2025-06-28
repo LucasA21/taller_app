@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TextProps, StyleSheet, TextStyle } from "react-native";
+import { Text, TextProps, StyleSheet, TextStyle, StyleProp } from "react-native";
 
 // Todo este quilombo lo hago por que no se ve la fuente desde expo go, era mas facil no ponerle bold y listo pero no queria.
 
@@ -8,7 +8,7 @@ export function PressStartFont({
   children,
   style,
   ...props
-}: TextProps & { style?: TextStyle }) {
+}: TextProps & { style?: StyleProp<TextStyle> }) {
 
   const flat = StyleSheet.flatten(style) || {};
 
@@ -37,7 +37,7 @@ export function PressStartFont({
       style={[
         { fontFamily: family },
         styleWithoutFW,
-      ]}
+      ] as StyleProp<TextStyle>}
     >
       {children}
     </Text>

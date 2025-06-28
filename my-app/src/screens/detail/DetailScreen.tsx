@@ -1,4 +1,5 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View,StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { colors } from "@/src/theme/colors";
 import { MovieInfo } from "./Components/MovieInfo";
 import { BackButton } from "../../components/BackButton";
@@ -6,6 +7,7 @@ import { BackButton } from "../../components/BackButton";
 type DetailScreenProps = {
   item: {
     title: string;
+    tipo: string;
     image: string;
     categorys: string[];
     description: string;
@@ -14,18 +16,19 @@ type DetailScreenProps = {
 
 export default function DetailScreen({ item }: DetailScreenProps) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
     <BackButton />
       <View style={styles.bordercont}>
         <MovieInfo
             image={item.image}
             title={item.title}
+            tipo={item.tipo}
             categorys={item.categorys}
             description={item.description}
         >
         </MovieInfo>
       </View> 
-    </View>
+    </SafeAreaView>
   );
 }
 
