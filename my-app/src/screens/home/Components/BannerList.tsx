@@ -6,7 +6,6 @@ import { ROUTES } from "@/src/navigation/routes";
 
 export function BannerList() {
     const {width} = useWindowDimensions();
-    const isNarrow = width < 400;
 
     return (
         <View 

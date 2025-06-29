@@ -3,15 +3,31 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { HomeHeader}  from "./Components/HomeHeader";
 import { BannerList } from "./Components/BannerList";
 import { colors } from "@/src/theme/colors";
-import { SectionList } from "./Components/SectionList";
+import { SectionListFetch } from "./Components/SectionList";
+import { useState } from "react";
+import { FilterModal } from "./Components/FilterModal";
 
 
 export function HomeScreen() {
+
+    const [filterVisible, setFilterVisible] = useState(false);
+    const [selectedTypes, setSelectedTypes] = useState<number[]>([]);
+    const [selectedGenres, setSelectedGenres] = useState<number[]>([]);
+
     return (
         <SafeAreaView style={styles.container}>
-        <HomeHeader />
+        <HomeHeader onFilterPress={() => setFilterVisible(true)}/>
+        <FilterModal
+        visible={filterVisible}
+        onCancel={() => setFilterVisible(false)}
+        onApply={(types, genres) => {
+          setSelectedTypes(types);
+          setSelectedGenres(genres);
+          setFilterVisible(false);
+        }}
+      />
         <BannerList />
-        <SectionList/>
+        <SectionListFetch selectedTypes={selectedTypes} selectedGenres={selectedGenres}/>
         </SafeAreaView>
     );
 }

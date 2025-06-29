@@ -13,7 +13,7 @@ import { colors } from "@/src/theme/colors";
 
 
 type AppButtonProps = PressableProps & {
-    icon: React.ReactNode;
+    icon?: React.ReactNode;
     text: string;
     style?: StyleProp<ViewStyle>;
 }
@@ -30,9 +30,9 @@ export function AppButton ({
         { opacity: pressed ? 0.5 : 1 },
       ]}
         {...presableProps}> 
-        <View style={styles.container}>
+        <View style={[styles.container, { flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }]}>
             {icon}
-            <PressStartFont style={styles.text}>{text}</PressStartFont>
+            <PressStartFont style={[styles.text, { width: undefined, marginLeft: icon ? 6 : 0 }]}>{text}</PressStartFont>
         </View>
     </Pressable>
   );  
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 1,     
-    padding: 5,
+    padding: 6,
     borderWidth: 1,
     borderTopColor: colors.lightPurple,
     borderLeftColor: colors.lightPurple,
@@ -55,8 +55,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#fff",
-    width: 100,
-    fontSize: 12,
+    fontSize: 14,
     textAlign: "center",
   },
 });

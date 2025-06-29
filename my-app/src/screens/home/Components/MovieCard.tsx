@@ -6,7 +6,7 @@ import { colors } from "@/src/theme/colors";
 
 type MovieCardProps = {
   title: string;
-  image: string;
+  image: string | number;
   categorys: string[];
 };
 
@@ -14,23 +14,27 @@ export function MovieCard({ title, image, categorys }: MovieCardProps) {
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: image }}
+        source={typeof image === 'string' ? { uri: image } : image}
         style={styles.image}
+        contentFit="fill"
       />
       <View style={styles.info}>
-        <PressStartFont
-          numberOfLines={1}
-          ellipsizeMode="tail"
-          style={styles.title}
-        >
-          {title}
-        </PressStartFont>
-
-        <CategoryList
-          categories={categorys}
-          containerStyle={styles.categoriesContainer}
-          itemStyle={styles.category}
-        />
+        <View>
+          <PressStartFont
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={styles.title}
+          >
+            {title}
+          </PressStartFont>
+        </View>
+        <View>
+          <CategoryList
+            categories={categorys}
+            containerStyle={styles.categoriesContainer}
+            itemStyle={{}}
+          />
+        </View>
       </View>
     </View>
   );
@@ -38,7 +42,7 @@ export function MovieCard({ title, image, categorys }: MovieCardProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: 180,
+    width: 220,
     height: 290,
     marginRight: 10,
     borderWidth: 2,
@@ -55,9 +59,9 @@ const styles = StyleSheet.create({
   },
   info: {
     flex: 1,
-    paddingHorizontal: 8,
+    paddingHorizontal: 4,
     paddingVertical: 6,
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
   },
   title: {
     color: "#fff",
@@ -66,6 +70,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     paddingLeft: 7,
     paddingTop: 10,
+    marginBottom: 5,
   },
   categoriesContainer: {
     marginTop: 4,

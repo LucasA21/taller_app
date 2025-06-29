@@ -1,23 +1,32 @@
-import { View, Text, StyleSheet,TextStyle, ViewStyle } from "react-native";
+import { View, StyleSheet,TextStyle, ViewStyle } from "react-native";
 import { colors } from "@/src/theme/colors";
+import { Etiqueta } from "@/src/components/Etiqueta";
 
 type CategoryListProps = {
-  categories: string[];
+  categories?: string[];
   containerStyle?: ViewStyle; 
   itemStyle?: TextStyle;
 };
 
 export function CategoryList({
-  categories,
+  categories = [],
   containerStyle,
   itemStyle,
 }: CategoryListProps) {
   return (
     <View style={[styles.container, containerStyle]}>
       {categories.map((cat, i) => (
-        <Text key={i} style={[styles.item, itemStyle]}>
+        <Etiqueta
+          key={i}
+          fontSize={itemStyle?.fontSize ? Number(itemStyle.fontSize) : 10}
+          backgroundColor={itemStyle?.backgroundColor ? String(itemStyle.backgroundColor) : String(colors.darkGray)}
+          color={itemStyle?.color ? String(itemStyle.color) : "#fff"}
+          paddingHorizontal={itemStyle?.paddingHorizontal ? Number(itemStyle.paddingHorizontal) : 6}
+          paddingVertical={itemStyle?.paddingVertical ? Number(itemStyle.paddingVertical) : 2}
+          style={itemStyle}
+        >
           {cat}
-        </Text>
+        </Etiqueta>
       ))}
     </View>
   );
@@ -28,14 +37,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     alignSelf: "flex-start",
-  },
-  item: {
-    backgroundColor: colors.darkGray,
-    color: "#fff",
-    fontSize: 10,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    marginRight: 4,
-    marginBottom: 4,
+    marginLeft: 4
   },
 });

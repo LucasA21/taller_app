@@ -3,9 +3,10 @@ import { ImageBackground } from "expo-image";
 import { PressStartFont } from "@/src/components/PressStartFont";
 import { CategoryList } from "@/src/components/CategoryList";
 import { colors } from "@/src/theme/colors";
+import { Etiqueta } from "@/src/components/Etiqueta";
 
 type MovieInfoProps = {
-  image: string;
+  image: string | number;
   title: string;
   tipo: string;
   categorys: string[];
@@ -22,7 +23,8 @@ export function MovieInfo({
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={{ uri: image }}
+        source={typeof image === 'string' ? { uri: image } : image}
+        contentFit="fill"
         style={styles.poster}
       />
 
@@ -31,9 +33,16 @@ export function MovieInfo({
       </PressStartFont>
 
       <View style={styles.tipoContainer}>
-      <Text style={styles.tipo}>
-        {tipo}
-      </Text>
+        <Etiqueta
+          fontSize={16}
+          backgroundColor={colors.darkGray}
+          color="#fff"
+          paddingHorizontal={6}
+          paddingVertical={2}
+          style={{ fontWeight: "bold" }}
+        >
+          {tipo}
+        </Etiqueta>
       </View>
 
       <Text style={styles.descripcion}>
@@ -47,7 +56,16 @@ export function MovieInfo({
       <CategoryList
         categories={categorys}
         containerStyle={styles.categoriasContainer}
-        itemStyle={styles.categorias}
+        itemStyle={{
+          backgroundColor: colors.darkGray,
+          color: "#fff",
+          fontSize: 14,
+          paddingHorizontal: 6,
+          paddingVertical: 2,
+          marginRight: 4,
+          marginBottom: 4,
+          fontWeight: "bold"
+        }}
       />
     </View>
   );
@@ -60,7 +78,7 @@ const styles = StyleSheet.create({
   },
   poster: {
     width: "100%",
-    height: 360,
+    height: "70%",
     marginBottom: 40,
   },
   title: {
@@ -68,20 +86,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 10,
   },
-  tipo: {
-    backgroundColor: colors.darkGray,
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 15,
-    paddingHorizontal: 2,
-    paddingVertical: 2,
-  },
   tipoContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
     alignSelf: "flex-start",
-    backgroundColor: colors.darkGray,
-    padding: 5,
     marginBottom: 10,
   },
   descripcion: {

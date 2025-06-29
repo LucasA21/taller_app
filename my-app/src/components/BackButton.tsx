@@ -7,10 +7,10 @@ export function BackButton() {
   const router = useRouter();
   return (
     <AppButton
-      icon={<Ionicons name="arrow-back" size={13} color="white" />}
+      icon={<Ionicons name="arrow-back" size={10} color="white" />}
       text="BACK"
       onPress={() => router.push(ROUTES.HOME)}
-      style={{ width: 100, height: 30 }}
+      style={{ alignSelf: 'flex-start' }}
     />
   );
 }

@@ -3,12 +3,19 @@ import { PressStartFont } from "@/src/components/PressStartFont";
 import { colors } from "@/src/theme/colors";
 import { FilterButton } from "./FilterButton";
 
-export function HomeHeader() {
+
+type HomeHeaderProps = {
+    onFilterPress: () => void;
+}
+
+export function HomeHeader({onFilterPress}: HomeHeaderProps) {
 
     return (
         <View style={styles.container}>
         <PressStartFont style = {styles.title}>Pixdex</PressStartFont>
-        <FilterButton />
+        <View style={{ marginLeft: 32 }}>
+          <FilterButton onPress={onFilterPress}/>
+        </View>
         </View>
     );
 }
@@ -19,7 +26,7 @@ const styles = StyleSheet.create({
         paddingHorizontal:8,
         flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
     },
     title: { 
         fontSize: 24,
