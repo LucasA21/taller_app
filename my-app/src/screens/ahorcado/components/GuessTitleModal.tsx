@@ -38,11 +38,11 @@ export function GuessTitleModal({
     <Modal transparent animationType="fade" visible={visible}>
       <View style={styles.backdrop}>
         <View style={styles.modal}>
+          <Pressable onPress={onClose} style={styles.absoluteCloseButton}>
+            <Ionicons name="close" size={20} color="#fff" />
+          </Pressable>
           <View style={styles.header}>
             <PressStartFont style={styles.title}>Guess the Title</PressStartFont>
-            <Pressable onPress={onClose} style={styles.closeButton}>
-              <Ionicons name="close" size={20} color="#fff" />
-            </Pressable>
           </View>
 
           <TextInput
@@ -57,12 +57,7 @@ export function GuessTitleModal({
             <AppButton
               text="SUBMIT GUESS"
               onPress={handlePressSubmit}
-              style={styles.submitButton}
-            />
-            <AppButton
-              text="CERRAR"
-              onPress={onClose}
-              style={styles.closeButtonApp}
+              style={[styles.submitButton, { alignSelf: 'center' }]}
             />
           </View>
         </View>
@@ -102,7 +97,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   closeButton: {
-    marginLeft: 12,
   },
   input: {
     borderWidth: 1,
@@ -119,9 +113,6 @@ const styles = StyleSheet.create({
   submitButton: {
     width: 190,
   },
-  closeButtonApp: {
-    width: 120,
-  },
   buttonsRow: {
     flexDirection: "row",
     justifyContent: "center",
@@ -129,5 +120,11 @@ const styles = StyleSheet.create({
     gap: 12,
     marginTop: 0,
     marginBottom: 0,
+  },
+  absoluteCloseButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 10,
   },
 });
