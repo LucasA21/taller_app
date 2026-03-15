@@ -39,7 +39,7 @@ export function GuessTitleModal({
       <View style={styles.backdrop}>
         <View style={styles.modal}>
           <Pressable onPress={onClose} style={styles.absoluteCloseButton}>
-            <Ionicons name="close" size={20} color="#fff" />
+            <Ionicons name="close" size={20} color={colors.white} />
           </Pressable>
           <View style={styles.header}>
             <PressStartFont style={styles.title}>Guess the Title</PressStartFont>
@@ -47,7 +47,7 @@ export function GuessTitleModal({
 
           <TextInput
             placeholder="Enter complete title"
-            placeholderTextColor="#888"
+            placeholderTextColor={colors.gray}
             value={text}
             onChangeText={setText}
             style={styles.input}
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     borderColor: colors.lightPurple,
     paddingHorizontal: 8,
     paddingVertical: 8,
-    color: "#fff",
+    color: colors.white,
     marginBottom: 24,
     width: "100%",
     fontSize: 16,

@@ -11,51 +11,75 @@ import {
 import { PressStartFont } from "@/src/components/PressStartFont";
 import { colors } from "@/src/theme/colors";
 
-
 type AppButtonProps = PressableProps & {
     icon?: React.ReactNode;
     text: string;
     style?: StyleProp<ViewStyle>;
-}
+    variant?: 'primary' | 'secondary';
+};
 
-export function AppButton ({
-    icon,text,style,onPress, ...presableProps
+export function AppButton({
+    icon,
+    text,
+    style,
+    onPress,
+    variant = 'primary',
+    ...pressableProps
 }: AppButtonProps) {
-  return (
-    <Pressable 
-      onPress={onPress}
-      style={({ pressed}) => [
-        styles.pressable,
-        style,
-        { opacity: pressed ? 0.5 : 1 },
-      ]}
-        {...presableProps}> 
-        <View style={[styles.container, { flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }]}>
-            {icon}
-            <PressStartFont style={[styles.text, { width: undefined, marginLeft: icon ? 6 : 0 }]}>{text}</PressStartFont>
-        </View>
-    </Pressable>
-  );  
+    const isPrimary = variant === 'primary';
+    const containerStyle = isPrimary ? styles.primaryContainer : styles.secondaryContainer;
+    const textStyle = isPrimary ? styles.primaryText : styles.secondaryText;
+
+    return (
+        <Pressable
+            onPress={onPress}
+            style={({ pressed }) => [
+                style,
+                { opacity: pressed ? 0.6 : 1 },
+            ]}
+            {...pressableProps}
+        >
+            <View style={[styles.container, containerStyle]}>
+                {icon}
+                <PressStartFont style={[styles.text, textStyle, { width: undefined, marginLeft: icon ? 6 : 0 }]}>
+                    {text}
+                </PressStartFont>
+            </View>
+        </Pressable>
+    );
 }
 
 const styles = StyleSheet.create({
-  pressable: {
-  },
-   container: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 1,     
-    padding: 6,
-    borderWidth: 1,
-    borderTopColor: colors.lightPurple,
-    borderLeftColor: colors.lightPurple,
-    borderBottomColor: colors.darkPurple,
-    borderRightColor: colors.darkPurple,
-    backgroundColor: colors.purple,
-  },
-  text: {
-    color: "#fff",
-    fontSize: 14,
-    textAlign: "center",
-  },
+    container: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 1,
+        padding: 10,
+        borderWidth: 2,
+    },
+    primaryContainer: {
+        borderTopColor: colors.lightPurple,
+        borderLeftColor: colors.lightPurple,
+        borderBottomColor: colors.darkPurple,
+        borderRightColor: colors.darkPurple,
+        backgroundColor: colors.purple,
+    },
+    secondaryContainer: {
+        borderTopColor: colors.lightGray,
+        borderLeftColor: colors.lightGray,
+        borderBottomColor: colors.darkGray,
+        borderRightColor: colors.darkGray,
+        backgroundColor: colors.gray,
+    },
+    text: {
+        fontSize: 12,
+        textAlign: "center",
+    },
+    primaryText: {
+        color: colors.white,
+    },
+    secondaryText: {
+        color: colors.white,
+    },
 });

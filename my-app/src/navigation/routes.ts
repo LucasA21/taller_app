@@ -1,6 +1,6 @@
 import { Href } from "expo-router";
 
-export const ROUTES: Record<string, Href> = {
+export const ROUTES = {
     HOME: "/",
     DETAIL: "/detail/[slug]",
     AHORCADO: "/games/ahorcado",

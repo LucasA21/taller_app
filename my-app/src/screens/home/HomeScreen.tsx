@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { HomeHeader}  from "./Components/HomeHeader";
-import { BannerList } from "./Components/BannerList";
 import { colors } from "@/src/theme/colors";
 import { SectionListFetch } from "./Components/SectionList";
 import { useState } from "react";
@@ -26,7 +25,6 @@ export function HomeScreen() {
           setFilterVisible(false);
         }}
       />
-        <BannerList />
         <SectionListFetch selectedTypes={selectedTypes} selectedGenres={selectedGenres}/>
         </SafeAreaView>
     );

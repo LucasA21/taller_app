@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TextStyle, ViewStyle } from "react-native";
+import { colors } from "@/src/theme/colors";
 
 interface EtiquetaProps {
   children: React.ReactNode;
@@ -15,8 +16,8 @@ interface EtiquetaProps {
 export function Etiqueta({
   children,
   fontSize = 14,
-  backgroundColor = "#333",
-  color = "#fff",
+  backgroundColor = colors.darkGray,
+  color = colors.white,
   paddingHorizontal = 8,
   paddingVertical = 4,
   style = {},

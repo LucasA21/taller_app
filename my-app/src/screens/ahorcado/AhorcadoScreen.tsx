@@ -198,13 +198,13 @@ const styles = StyleSheet.create({
   scoreText: {
     marginLeft: 6,
     fontSize: 18,
-    color: "#fff",
+    color: colors.white,
   },
 
   gameContainer: {
     backgroundColor: colors.background,
     borderWidth: 1,
-    borderColor: "#888", 
+    borderColor: colors.gray, 
     padding: 16,
     borderRadius: 4,
     marginBottom: 16,
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   placeholderText: {
-    color: "#fff",
+    color: colors.white,
     fontSize: 20,
   },
 });

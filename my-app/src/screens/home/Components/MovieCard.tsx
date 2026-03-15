@@ -30,9 +30,9 @@ export function MovieCard({ title, image, categorys }: MovieCardProps) {
         </View>
         <View>
           <CategoryList
-            categories={categorys}
+            categories={categorys.slice(0, 2)}
             containerStyle={styles.categoriesContainer}
-            itemStyle={{}}
+            itemStyle={styles.category}
           />
         </View>
       </View>
@@ -42,8 +42,8 @@ export function MovieCard({ title, image, categorys }: MovieCardProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: 220,
-    height: 290,
+    width: 140,
+    height: 210, 
     marginRight: 10,
     borderWidth: 2,
     overflow: "hidden",
@@ -54,34 +54,36 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 220,
+    height: 150,
     backgroundColor: colors.lightGray,
   },
   info: {
     flex: 1,
     paddingHorizontal: 4,
-    paddingVertical: 6,
+    paddingVertical: 4,
     justifyContent: "flex-start",
   },
   title: {
-    color: "#fff",
-    fontSize: 12,
+    color: colors.white,
+    fontSize: 10,
     fontWeight: "bold",
     alignSelf: "flex-start",
-    paddingLeft: 7,
-    paddingTop: 10,
-    marginBottom: 5,
+    paddingLeft: 4,
+    paddingTop: 6,
+    marginBottom: 2,
   },
   categoriesContainer: {
-    marginTop: 4,
+    marginTop: 2,
+    flexWrap: "nowrap",
+    overflow: "hidden",
   },
   category: {
     backgroundColor: colors.darkGray,
-    color: "#fff",
-    fontSize: 9,
-    paddingHorizontal: 5,
+    color: colors.white,
+    fontSize: 8,
+    paddingHorizontal: 4,
     paddingVertical: 2,
-    marginRight: 4,
-    marginBottom: 4,
+    marginRight: 2,
+    marginBottom: 2,
   },
 });

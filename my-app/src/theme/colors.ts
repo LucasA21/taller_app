@@ -15,7 +15,20 @@ export const colors = {
     lightRed: "#f5a3b7",
     blue: "#33c3f0",
     darkBlue: "#1eaedb",
-    
+    white: "#ffffff",
+    black: "#000000",
+    transparent: "transparent",
+
+    // Functional & Transparent tokens
+    white70: "rgba(255, 255, 255, 0.7)",
+    white90: "rgba(255, 255, 255, 0.9)",
+    white20: "rgba(255, 255, 255, 0.2)",
+    white05: "rgba(255, 255, 255, 0.05)",
+    white30: "rgba(255, 255, 255, 0.3)",
+    black30: "rgba(0, 0, 0, 0.3)",
+    black50: "rgba(0, 0, 0, 0.5)",
+    errorOverlay: "rgba(234, 56, 76, 0.2)",
+    successOverlay: "rgba(95, 208, 104, 0.2)",
 
 } as const;
 

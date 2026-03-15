@@ -36,7 +36,7 @@ export function MovieInfo({
         <Etiqueta
           fontSize={16}
           backgroundColor={colors.darkGray}
-          color="#fff"
+          color={colors.white}
           paddingHorizontal={6}
           paddingVertical={2}
           style={{ fontWeight: "bold" }}
@@ -58,7 +58,7 @@ export function MovieInfo({
         containerStyle={styles.categoriasContainer}
         itemStyle={{
           backgroundColor: colors.darkGray,
-          color: "#fff",
+          color: colors.white,
           fontSize: 14,
           paddingHorizontal: 6,
           paddingVertical: 2,
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   descripcion: {
-    color: "#fff",
+    color: colors.white,
     fontSize: 14,
     lineHeight: 20,
   },
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   },
   categorias: {
     backgroundColor: colors.darkGray,
-    color: "#fff",
+    color: colors.white,
     fontSize: 14,
     paddingHorizontal: 8,
     paddingVertical: 4,

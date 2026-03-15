@@ -2,7 +2,8 @@ import { StyleSheet, View } from "react-native";
 import { PressStartFont } from "@/src/components/PressStartFont";
 import { colors } from "@/src/theme/colors";
 import { FilterButton } from "./FilterButton";
-
+import { AuthButton } from "@/src/components/AuthButton";
+import { router } from "expo-router";
 
 type HomeHeaderProps = {
     onFilterPress: () => void;
@@ -13,8 +14,9 @@ export function HomeHeader({onFilterPress}: HomeHeaderProps) {
     return (
         <View style={styles.container}>
         <PressStartFont style = {styles.title}>Pixdex</PressStartFont>
-        <View style={{ marginLeft: 32 }}>
+        <View style={{ flexDirection: 'row', gap: 4 }}>
           <FilterButton onPress={onFilterPress}/>
+          <AuthButton onPress={() => router.push('/auth')}/>
         </View>
         </View>
     );

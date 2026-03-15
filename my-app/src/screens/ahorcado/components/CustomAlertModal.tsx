@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   message: {
-    color: "#fff",
+    color: colors.white,
     fontSize: 16,
     marginBottom: 24,
     textAlign: "center",

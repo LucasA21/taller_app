@@ -8,13 +8,13 @@ type FilterButtonProps = {
 }
 
 
-export function FilterButton({onPress}: FilterButtonProps) {
+export function FilterButton({onPress, style}: FilterButtonProps) {
   return (
     <AppButton
       icon={<Ionicons name="settings-outline" size={13} color="white" />}
       text="FILTRAR"
       onPress={onPress}
-      style={{ width: 160, height: 30,}}
+      style={[{ paddingHorizontal: 10, paddingVertical: 4 }, style]}
     />
   );
 }

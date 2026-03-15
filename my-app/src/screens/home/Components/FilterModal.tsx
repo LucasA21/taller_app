@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 12,
     textAlign: "center",
-    color: "#fff",
+    color: colors.white,
   },
   sectionTitle: {
     fontSize: 16,
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   checkboxLabel: {
-    color: "#fff",
+    color: colors.white,
     fontSize: 18,
   },
   buttonsRow: {

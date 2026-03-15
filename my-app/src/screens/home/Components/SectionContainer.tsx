@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         borderColor: colors.lightPurple,
         fontSize: 12,
         fontWeight: "bold",
-        color: "#fff",
+        color: colors.white,
     },
     sectionContainer: {
         paddingVertical: 10,

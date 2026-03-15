@@ -20,7 +20,7 @@ export function CategoryList({
           key={i}
           fontSize={itemStyle?.fontSize ? Number(itemStyle.fontSize) : 10}
           backgroundColor={itemStyle?.backgroundColor ? String(itemStyle.backgroundColor) : String(colors.darkGray)}
-          color={itemStyle?.color ? String(itemStyle.color) : "#fff"}
+          color={itemStyle?.color ? String(itemStyle.color) : colors.white}
           paddingHorizontal={itemStyle?.paddingHorizontal ? Number(itemStyle.paddingHorizontal) : 6}
           paddingVertical={itemStyle?.paddingVertical ? Number(itemStyle.paddingVertical) : 2}
           style={itemStyle}
@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     flexWrap: "wrap",
-    alignSelf: "flex-start",
     marginLeft: 4
   },
 });

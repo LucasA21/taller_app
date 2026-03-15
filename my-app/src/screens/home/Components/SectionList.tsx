@@ -5,6 +5,7 @@ import { mapGeneros }  from "@/src/data/helper";
 import { ActivityIndicator, ScrollView } from "react-native";
 import { IContenidoAudiovisual } from "@/src/data/contenidosAudiovisuales";
 import { ITipoContenidoAudiovisual } from "@/src/data/tiposContenidoAudiovisual";
+import { BannerList } from "./BannerList";
 
 
 type SectionListFetchProps = {
@@ -61,6 +62,7 @@ export function SectionListFetch({selectedTypes, selectedGenres}: SectionListFet
     return (
        <ScrollView
        showsVerticalScrollIndicator={false}>
+       <BannerList />
        {tiposAMostrar.map((tipo) => {
         const items = contenidosFiltrados
           .filter((c) => c.tipoId === tipo.id)
