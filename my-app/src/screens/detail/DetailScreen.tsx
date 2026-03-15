@@ -8,7 +8,7 @@ type DetailScreenProps = {
   item: {
     title: string;
     tipo: string;
-    image: string;
+    image: string | number;
     categorys: string[];
     description: string;
   };

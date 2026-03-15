@@ -4,7 +4,7 @@ import { useLocalSearchParams } from "expo-router";
 import { View, ActivityIndicator } from "react-native";
 import { PressStartFont } from "@/src/components/PressStartFont";
 import { useEffect, useState } from "react";
-import { API_URL } from "@/src/common/constants";
+import { fetchTipos, fetchContenidos } from "@/src/services/supabaseData";
 
 export default function DetailRoute() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
@@ -12,23 +12,21 @@ export default function DetailRoute() {
   const [item, setItem] = useState<{
     title: string;
     tipo: string;
-    image: string;
+    image: string | number;
     categorys: string[];
     description: string;
-  } | null>(null);(null);
+  } | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadItem() {
       try {
-        const [r1, r2] = await Promise.all([
-          fetch(`${API_URL}/contenidos`),
-          fetch(`${API_URL}/tipos`)
+        const [tiposData, contenidosData] = await Promise.all([
+          fetchTipos(),
+          fetchContenidos()
         ]);
-        const contenidos = await r1.json();
-        const tipos = await r2.json();
 
-        const found = (contenidos as any[])
+        const found = (contenidosData as any[])
           .find(x => x.nombre === decodedSlug);
         if (!found) {
           setItem(null);
@@ -36,7 +34,7 @@ export default function DetailRoute() {
         }
 
         const tipoStr =
-          (tipos as any[]).find(t => t.id === found.tipoId)
+          (tiposData as any[]).find(t => t.id === found.tipoId)
             ?.singular ?? "desconocido";
 
         setItem({

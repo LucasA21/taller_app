@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "@/src/common/constants";
 import {SectionContainer} from "./SectionContainer";
 import { mapGeneros }  from "@/src/data/helper";
 import { ActivityIndicator, ScrollView } from "react-native";
 import { IContenidoAudiovisual } from "@/src/data/contenidosAudiovisuales";
 import { ITipoContenidoAudiovisual } from "@/src/data/tiposContenidoAudiovisual";
 import { BannerList } from "./BannerList";
+import { fetchTipos, fetchContenidos } from "@/src/services/supabaseData";
 
 
 type SectionListFetchProps = {
@@ -22,12 +22,10 @@ export function SectionListFetch({selectedTypes, selectedGenres}: SectionListFet
   useEffect(() => {
     async function loadAll() {
       try {
-        const [r1,r2] = await Promise.all([
-          fetch(`${API_URL}/tipos`),
-          fetch(`${API_URL}/contenidos`)
+        const [tiposData, contenidosData] = await Promise.all([
+          fetchTipos(),
+          fetchContenidos()
         ]);
-        const tiposData: ITipoContenidoAudiovisual[] = await r1.json();
-        const contenidosData: IContenidoAudiovisual[] = await r2.json();
         setTipos(tiposData);
         setContenidos(contenidosData);
       } catch (error) {

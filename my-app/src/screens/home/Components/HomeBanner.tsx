@@ -1,4 +1,4 @@
-import { Pressable, Text, StyleSheet, ViewStyle, View } from "react-native";
+import { Pressable, Text, StyleSheet, ViewStyle, View, Platform } from "react-native";
 import { PressStartFont } from "@/src/components/PressStartFont";
 import { colors } from "@/src/theme/colors";
 import { Href, useRouter } from "expo-router";
@@ -47,8 +47,7 @@ export function HomeBanner({ title, description, bcolor, route, sty }: BannerPro
                     </View>
                 </View>
             </View>
-            
-            <View style={[styles.patternOverlay, { backgroundColor: colors.white05 }]} pointerEvents="none" />
+            <View style={[styles.patternOverlay, { backgroundColor: colors.white05, pointerEvents: 'none' }]} />
         </Pressable>
     )
 };
@@ -61,11 +60,20 @@ const styles = StyleSheet.create({
         borderColor: colors.white20,
         overflow: 'hidden',
         position: 'relative',
-        elevation: 5,
-        shadowColor: colors.black,
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 4.65,
+        backgroundColor: colors.black,
+        // Modern shadow approach
+        ...Platform.select({
+            web: {
+                boxShadow: `0px 4px 4.65px ${colors.black50}`,
+            },
+            default: {
+                elevation: 5,
+                shadowColor: colors.black,
+                shadowOffset: { width: 0, height: 4 },
+                shadowOpacity: 0.3,
+                shadowRadius: 4.65,
+            }
+        })
     },
     content: {
         flex: 1,
@@ -84,9 +92,16 @@ const styles = StyleSheet.create({
         flex: 1,
         marginRight: 8,
         lineHeight: 18,
-        textShadowColor: colors.black50,
-        textShadowOffset: { width: 1, height: 1 },
-        textShadowRadius: 1,
+        ...Platform.select({
+            web: {
+                textShadow: `1px 1px 1px ${colors.black50}`,
+            },
+            default: {
+                textShadowColor: colors.black50,
+                textShadowOffset: { width: 1, height: 1 },
+                textShadowRadius: 1,
+            }
+        })
     },
     description: {
         color: colors.white90,
