@@ -34,7 +34,7 @@ export function PressStartFont({
     <Text
       {...props}
       style={[
-        { fontFamily: family },
+        { fontFamily: family, includeFontPadding: false },
         styleWithoutFW,
       ] as StyleProp<TextStyle>}
     >

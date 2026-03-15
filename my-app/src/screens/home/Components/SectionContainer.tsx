@@ -54,16 +54,17 @@ const styles = StyleSheet.create({
     },
     sectionTitle: {
         position: "absolute",
-        top: -10,
+        top: -14, // Moved slightly higher to account for box height
         left: 16,
-        paddingHorizontal: 8,
-        paddingVertical: 2,
+        paddingHorizontal: 10,
+        paddingTop: 6,
+        paddingBottom: 4, // Symmetric padding with a slight upward bias for this font
         zIndex: 1,
         backgroundColor: colors.purple,
         borderWidth: 2,
         borderColor: colors.lightPurple,
         fontSize: 12,
-        fontWeight: "bold",
+        lineHeight: 12,
         color: colors.white,
     },
     sectionContainer: {

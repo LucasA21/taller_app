@@ -42,11 +42,11 @@ export function GuessTitleModal({
             <Ionicons name="close" size={20} color={colors.white} />
           </Pressable>
           <View style={styles.header}>
-            <PressStartFont style={styles.title}>Guess the Title</PressStartFont>
+            <PressStartFont style={styles.title}>Adivina el Título</PressStartFont>
           </View>
 
           <TextInput
-            placeholder="Enter complete title"
+            placeholder="Ingresa el título completo"
             placeholderTextColor={colors.gray}
             value={text}
             onChangeText={setText}
@@ -55,7 +55,7 @@ export function GuessTitleModal({
 
           <View style={styles.buttonsRow}>
             <AppButton
-              text="SUBMIT GUESS"
+              text="ENVIAR RESPUESTA"
               onPress={handlePressSubmit}
               style={[styles.submitButton, { alignSelf: 'center' }]}
             />

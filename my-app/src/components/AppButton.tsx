@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 12,
         textAlign: "center",
+        lineHeight: 18,
     },
     primaryText: {
         color: colors.white,

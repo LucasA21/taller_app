@@ -19,7 +19,6 @@ export const colors = {
     black: "#000000",
     transparent: "transparent",
 
-    // Functional & Transparent tokens
     white70: "rgba(255, 255, 255, 0.7)",
     white90: "rgba(255, 255, 255, 0.9)",
     white20: "rgba(255, 255, 255, 0.2)",

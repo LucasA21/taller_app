@@ -8,7 +8,7 @@ export function BackButton() {
   return (
     <AppButton
       icon={<Ionicons name="arrow-back" size={10} color="white" />}
-      text="BACK"
+      text="VOLVER"
       onPress={() => router.push(ROUTES.HOME)}
       style={{ alignSelf: 'flex-start' }}
     />

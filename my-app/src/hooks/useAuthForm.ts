@@ -85,14 +85,11 @@ export function useAuthForm() {
       }
     } else {
       setSuccessMessage('¡Tu cuenta ha sido creada! Iniciando sesión...');
-      // Upon successful creation, if we have a session, redirect.
       if (session) {
         setTimeout(() => {
           router.replace('/');
         }, 1500);
       } else {
-        // Fallback or explicit login if email confirmation wasn't explicitly disabled 
-        // but no session was returned out of the box.
         setTimeout(() => {
           setIsLogin(true);
           setSuccessMessage(null);
