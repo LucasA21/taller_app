@@ -42,15 +42,14 @@ Cree un archivo `.env` en la raíz del proyecto basándose en `.env.sample`. Deb
 
 ```env
 EXPO_PUBLIC_SUPABASE_URL=TU_SUPABASE_URL
-EXPO_PUBLIC_SUPABASE_KEY=TU_SUPABASE_ANON_KEY
+EXPO_PUBLIC_SUPABASE_KEY=TU_SUPABASE_KEY
 ```
 
 ### 4. Configuración de la Base de Datos
 
-En el panel SQL de Supabase, ejecute los scripts necesarios para crear las siguientes tablas:
+En el panel **SQL Editor** de Supabase, ejecute el contenido del archivo `my-app/supabase_setup.sql`. Este script automatiza la creación de todas las tablas necesarias (`tipos`, `generos`, `contenidos`, `contenido_generos`, `puntuaciones_ahorcado`), las políticas de seguridad (RLS), la configuración de tiempo real y la carga de datos iniciales.
 
-- `tipos`, `generos`, `contenidos`, `contenido_generos`.
-- `puntuaciones_ahorcado` (para el sistema de leaderboard).
+Asegúrese de ejecutar el script completo para garantizar que la aplicación funcione correctamente desde el primer inicio.
 
 ### 5. Ejecución
 
